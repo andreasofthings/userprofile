@@ -14,9 +14,9 @@ class ViewsTest(TestCase):
         self.assertEquals(response.status_code, 200)
 
     def testLogin(self):
-        response = self.client.get('/login/')
+        response = self.client.get('/user/login/')
         self.assertEquals(response.status_code, 200)
 
     def testLogout(self):
-        response = self.client.get('/logout/')
+        response = self.client.get('/user/logout/')
         self.assertEquals(response.status_code, 200)
