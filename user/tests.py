@@ -19,4 +19,5 @@ class ViewsTest(TestCase):
 
     def testLogout(self):
         response = self.client.get('/user/logout/')
-        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, '/user/')
