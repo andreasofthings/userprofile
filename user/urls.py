@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-from userprofile.views import Home, Login, Logout, RequireEmail
+from .views import Home, Login, Logout, RequireEmail
 
 urlpatterns = patterns(
     '',
