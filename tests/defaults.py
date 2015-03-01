@@ -113,9 +113,4 @@ HAYSTACK_CONNECTIONS = {
     }
 }
 
-# Celery
-CELERY_ALWAYS_EAGER = True
-CELERY_RESULT_BACKEND = "amqp"
-
-# Feeds
-FEEDS_POST_SOCIAL = False
+LOGIN_URL = "/user/"
