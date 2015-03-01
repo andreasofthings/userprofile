@@ -8,3 +8,9 @@ python-social-auth application for django, packaged
   :target: https://coveralls.io/r/aneumeier/user?branch=master
 
 
+Example Usage::
+  from django.conf.urls import patterns, url, include
+  urlpatterns = patterns(
+    ''
+    url('^user/', include('user.urls', namespace='user')),
+  )
