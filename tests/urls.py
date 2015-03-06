@@ -9,6 +9,6 @@ from django.conf.urls import patterns, url, include
 
 urlpatterns = patterns(
     '',
-    url('^user/', include('user.urls', namespace='user')),
+    url('^user/', include('userprofile.urls', namespace='user')),
     url('', include('social.apps.django_app.urls', namespace='social'))
 )

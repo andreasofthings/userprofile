@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'crispy_forms',
     'tests',
-    'user',
+    'userprofile',
 )
 
 MIDDLEWARE_CLASSES = (
