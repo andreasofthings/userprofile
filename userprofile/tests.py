@@ -25,6 +25,23 @@ class ViewsTest(TestCase):
         self.assertRedirects(response, '/user/')
 
 
+class ManagerTest(TestCase):
+    """
+    Test managers
+    """
+    fixtures = [
+        'user.yaml',
+        'profile.yaml',
+    ]
+
+    def setUp(self):
+        pass
+
+    def testCount(self):
+        p = Profile.objects.count()
+        self.assertEquals(p, 5)
+
+
 class ModelTest(TestCase):
     """
     Test models
