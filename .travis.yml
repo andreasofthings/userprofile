@@ -20,7 +20,7 @@ before_script:
   - mysql -e 'create database myapp_test;'
 # Tell Travis how to run the test script itself
 script:
-  - coverage run --source=user usertest.py -m py.test
+  - coverage run --source=userprofile usertest.py -m py.test
   - sleep 2
 after_success:
   - coveralls
