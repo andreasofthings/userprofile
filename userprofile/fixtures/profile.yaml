@@ -1,0 +1,35 @@
+- fields:
+    dob: 2013-11-06
+    gender: M
+    is_public: true
+    user: 2
+  model: userprofile.profile
+  pk: 1
+- fields:
+    dob: 2011-06-02
+    gender: F
+    is_public: false
+    user: 3
+  model: userprofile.profile
+  pk: 2
+- fields:
+    dob: 1978-11-27
+    gender: M
+    is_public: true
+    user: 4
+  model: userprofile.profile
+  pk: 3
+- fields:
+    dob: 2011-06-02
+    gender: M
+    is_public: false
+    user: 5
+  model: userprofile.profile
+  pk: 4
+- fields:
+    dob: 1978-11-06
+    gender: F
+    is_public: false
+    user: 6
+  model: userprofile.profile
+  pk: 5

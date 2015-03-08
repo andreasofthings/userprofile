@@ -1,0 +1,54 @@
+- fields:
+    date_joined: 2014-11-26 08:56:43.985534+00:00
+    email: andreas@neumeier.org
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: true
+    last_login: 2014-11-26 08:57:03.823807+00:00
+    last_name: ''
+    user_permissions: []
+    username: andreas
+  model: auth.user
+  pk: 1
+- fields:
+    email: xx@xx.org
+    first_name: ''
+    last_name: ''
+    username: 'Johann'
+    groups: [1, ]
+  model: auth.user
+  pk: 2
+- fields:
+    email: yy@yy.org
+    first_name: ''
+    last_name: ''
+    username: 'Charlotte'
+    groups: [1, ]
+  model: auth.user
+  pk: 3
+- fields:
+    email: zz@zz.org
+    first_name: ''
+    last_name: ''
+    username: 'Michael'
+    groups: [1, ]
+  model: auth.user
+  pk: 4
+- fields:
+    email: xx@zz.org
+    first_name: ''
+    last_name: ''
+    username: 'Thomas'
+    groups: [1, ]
+  model: auth.user
+  pk: 5
+- fields:
+    email: yy@zz.org
+    first_name: ''
+    last_name: ''
+    username: 'Daniela'
+    groups: [1, ]
+  model: auth.user
+  pk: 6

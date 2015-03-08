@@ -1,4 +1,22 @@
 from django.test import TestCase
+from .models import UserProfile
+
+
+class ModelTest(TestCase):
+    """
+    Test models
+    """
+    fixtures = [
+        'groups.yaml',
+        'user.yaml',
+    ]
+
+    def setUp(self):
+        pass
+
+    def testAge(self):
+        p = UserProfile.objects.get(pk=1)
+        self.assertEquals(p.age(), 2)
 
 
 class ViewsTest(TestCase):

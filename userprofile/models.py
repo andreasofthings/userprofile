@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 
 from datetime import date
-from dateutil.relativedelta import relativedelta
 
 
 GENDER_CHOICES = (
@@ -122,7 +121,7 @@ class Profile(models.Model):
         """
         Calculate a users age in years.
         """
-        return relativedelta(date.today(), self.dob).years
+        return (date.today() - self.dob) / 365
 
     def __str__(self):
         """
