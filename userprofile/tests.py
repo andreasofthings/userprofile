@@ -1,22 +1,6 @@
 from django.test import TestCase
-from .models import UserProfile
-
-
-class ModelTest(TestCase):
-    """
-    Test models
-    """
-    fixtures = [
-        'groups.yaml',
-        'user.yaml',
-    ]
-
-    def setUp(self):
-        pass
-
-    def testAge(self):
-        p = UserProfile.objects.get(pk=1)
-        self.assertEquals(p.age(), 2)
+from .models import Profile
+from datetime import date
 
 
 class ViewsTest(TestCase):
@@ -39,3 +23,21 @@ class ViewsTest(TestCase):
         response = self.client.get('/user/logout/')
         self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, '/user/')
+
+
+class ModelTest(TestCase):
+    """
+    Test models
+    """
+    fixtures = [
+        'user.yaml',
+        'profile.yaml',
+    ]
+
+    def setUp(self):
+        pass
+
+    def testAge(self):
+        p = Profile.objects.get(pk=1)
+        age = (date.today() - p.dob).days / 365
+        self.assertEquals(p.age, age)
