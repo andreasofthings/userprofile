@@ -62,11 +62,15 @@ class ModelTest(TestCase):
     def setUp(self):
         pass
 
+    def testAbsoluteUrl(self):
+        url = Profile.objects.get(pk=1)
+        self.assertEquals(url.get_absolute_url(), "/user/profile/1")
+
     def testAge(self):
         p = Profile.objects.get(pk=1)
         age = (date.today() - p.dob).days / 365
         self.assertEquals(p.age, age)
 
-    def testAbsoluteUrl(self):
-        url = Profile.objects.get(pk=1)
-        self.assertEquals(url.get_absolute_url(), "/user/profile/1")
+    def testRepr(self):
+        p = Profile.objects.get(pk=1)
+        self.assertEqual(p, "andreas (M, 1)")

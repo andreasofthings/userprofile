@@ -47,7 +47,7 @@ class ProfileManager(models.Manager):
         :rtype: count of female profiles.
         """
         return super(ProfileManager, self).get_query_set().filter(
-            gender='f'
+            gender='F'
         ).count()
 
     def male_count(self):
@@ -59,7 +59,7 @@ class ProfileManager(models.Manager):
         :rtype: count of male profiles.
         """
         return super(ProfileManager, self).get_query_set().filter(
-            gender='m'
+            gender='M'
         ).count()
 
     def female_percent(self):
