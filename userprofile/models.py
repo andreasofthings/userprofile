@@ -123,7 +123,7 @@ class Profile(models.Model):
         """
         return (date.today() - self.dob).days / 365
 
-    def __str__(self):
+    def __unicode__(self):
         """
         Unicode representation of self
         """

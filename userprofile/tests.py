@@ -43,11 +43,11 @@ class ManagerTest(TestCase):
 
     def testFemaleCount(self):
         p = Profile.objects.female_count()
-        self.assertEquals(p, 3)
+        self.assertEquals(p, 2)
 
     def testMaleCount(self):
         p = Profile.objects.male_count()
-        self.assertEquals(p, 5)
+        self.assertEquals(p, 3)
 
 
 class ModelTest(TestCase):
@@ -63,8 +63,8 @@ class ModelTest(TestCase):
         pass
 
     def testAbsoluteUrl(self):
-        url = Profile.objects.get(pk=1)
-        self.assertEquals(url.get_absolute_url(), "/user/profile/1")
+        p = Profile.objects.get(id=2)
+        self.assertEquals(p.get_absolute_url(), "/user/profile/1")
 
     def testAge(self):
         p = Profile.objects.get(pk=1)
@@ -73,4 +73,4 @@ class ModelTest(TestCase):
 
     def testRepr(self):
         p = Profile.objects.get(pk=1)
-        self.assertEqual(p, "andreas (M, 1)")
+        self.assertEqual(str(p), "Johann (M, 1)")
