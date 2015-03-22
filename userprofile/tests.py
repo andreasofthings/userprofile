@@ -55,16 +55,17 @@ class ModelTest(TestCase):
     Test models
     """
     fixtures = [
-        'user.yaml',
         'profile.yaml',
+        'user.yaml',
     ]
 
     def setUp(self):
         pass
 
     def testAbsoluteUrl(self):
-        p = Profile.objects.get(id=2)
-        self.assertEquals(p.get_absolute_url(), "/user/profile/1")
+        p = Profile.objects.get(pk=1)
+        url = p.get_absolute_url()
+        self.assertEqual(url, "/user/profile/1/")
 
     def testAge(self):
         p = Profile.objects.get(pk=1)

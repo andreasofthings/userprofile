@@ -6,8 +6,11 @@ Views
 """
 
 from utils import default_redirect
+
 from django.views.generic import TemplateView
 from django.views.generic import FormView
+
+from django.views.generic.detail import DetailView
 
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
@@ -170,6 +173,17 @@ class RequireEmail(TemplateView):
         context = super(RequireEmail, self).get_context_data(**kwargs)
         context['email_required'] = True
         context['backend'] = self.session['partial_pipeline']['backend']
+        context['available_backends'] = \
+            load_backends(settings.AUTHENTICATION_BACKENDS)
+        return context
+
+
+class ProfileView(DetailView):
+
+    template_name = "user/profile-view.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(Home, self).get_context_data(**kwargs)
         context['available_backends'] = \
             load_backends(settings.AUTHENTICATION_BACKENDS)
         return context
