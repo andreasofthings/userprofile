@@ -8,7 +8,15 @@ python-social-auth application for django, packaged
   :target: https://coveralls.io/r/aneumeier/userprofile?branch=master
 
 
-Example Usage::
+Example Usage settings.py::
+  INSTALLED_APPS = (
+    ...
+     'social.apps.django_app.default',
+     'userprofile',
+    ...
+  )
+
+Example Usage urls.py::
   from django.conf.urls import patterns, url, include
   urlpatterns = patterns(
     ''
