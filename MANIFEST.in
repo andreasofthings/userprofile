@@ -1,5 +1,6 @@
 include LICENSE
 recursive-include userprofile/templates/user *
+recursive-include userprofile/templatetags *
 recursive-include userprofile/migrations *
 recursive-include userprofile/static *
 include docs/Makefile

@@ -181,9 +181,3 @@ class RequireEmail(TemplateView):
 class ProfileView(DetailView):
 
     template_name = "user/profile-view.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(Home, self).get_context_data(**kwargs)
-        context['available_backends'] = \
-            load_backends(settings.AUTHENTICATION_BACKENDS)
-        return context
