@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 
 from .views import Home, Login, Logout, RequireEmail
 from .views import ProfileView
@@ -14,4 +14,5 @@ urlpatterns = patterns(
 urlpatterns += patterns(
     '',
     url(r'^profile/(?P<pk>\d+)/$', ProfileView.as_view(), name='profile-view'),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 )
