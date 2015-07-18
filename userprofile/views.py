@@ -16,6 +16,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 
+from django.contrib.auth.models import User
 from django.contrib.auth.views import login
 from django.contrib.auth import logout
 
@@ -185,6 +186,12 @@ class ProfileView(DetailView):
 
     def get_object(self):
         if 'pk' in self.request.GET:
-            return self.model.objects.get(pk=self.request.GET['pk'])
+            user = User.objects.get(pk=self.request.GET['pk'])
+            return self.model.objects.get(user=user)
         else:
-            return self.model.objects.get(pk=self.request.user.pk)
+            user, created = self.model.objects.get_or_create(
+                user=self.request.user
+            )
+            if created:
+                user.save()
+            return user
