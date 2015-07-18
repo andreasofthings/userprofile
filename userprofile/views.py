@@ -25,7 +25,8 @@ from django.conf import settings
 
 import urlparse
 
-from forms import APAuthenticationForm
+from .forms import APAuthenticationForm
+from .models import Profile
 
 from social.backends.utils import load_backends
 
@@ -179,5 +180,11 @@ class RequireEmail(TemplateView):
 
 
 class ProfileView(DetailView):
-
+    model = Profile
     template_name = "user/profile-view.html"
+
+    def get_object(self):
+        if 'pk' in self.request.GET:
+            return self.model.get(pk=self.request.GET['pk'])
+        else:
+            return self.model.get(pk=self.request.user.pk)
