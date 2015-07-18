@@ -185,6 +185,6 @@ class ProfileView(DetailView):
 
     def get_object(self):
         if 'pk' in self.request.GET:
-            return self.model.get(pk=self.request.GET['pk'])
+            return self.model.objects.get(pk=self.request.GET['pk'])
         else:
-            return self.model.get(pk=self.request.user.pk)
+            return self.model.objects.get(pk=self.request.user.pk)
