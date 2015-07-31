@@ -182,7 +182,6 @@ class RequireEmail(TemplateView):
 
 class ProfileView(DetailView):
     model = Profile
-    template_name = "user/profile-view.html"
 
     def get_object(self):
         if 'pk' in self.request.GET:
