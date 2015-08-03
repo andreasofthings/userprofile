@@ -20,7 +20,7 @@
         <div class="col-md-6">
           <h4>Groups</h4>
             <ul>
-              {% for group in user.groups %}
+              {% for group in user.groups.all %}
               <li>{{ group }}</li>
               {% endfor %}
             </ul>
