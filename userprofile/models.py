@@ -121,7 +121,10 @@ class Profile(models.Model):
         """
         Calculate a users age in years.
         """
-        return (date.today() - self.dob).days / 365
+        if self.dob:
+            return (date.today() - self.dob).days / 365
+        else:
+            return 0
 
     def __unicode__(self):
         """
