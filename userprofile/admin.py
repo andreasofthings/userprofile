@@ -8,7 +8,9 @@ class ProfileAdmin(admin.ModelAdmin):
     Profile admin options
     """
     list_display = (
+        'user',
         'gender',
+        'looksfor',
         'age'
     )
     list_filter = ('gender', )
