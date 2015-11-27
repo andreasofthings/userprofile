@@ -36,7 +36,7 @@ class ProfileManager(models.Manager):
         :rtype: count of all profiles.
 
         """
-        return super(ProfileManager, self).get_query_set().count()
+        return super(ProfileManager, self).get_queryset().count()
 
     def female_count(self):
         """
