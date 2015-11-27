@@ -74,4 +74,4 @@ class ModelTest(TestCase):
 
     def testRepr(self):
         p = Profile.objects.get(pk=1)
-        self.assertEqual(str(p), "Johann (M, 1)")
+        self.assertEqual(str(p), "Johann (M, 2)")
