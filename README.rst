@@ -17,6 +17,7 @@ Example Usage settings.py::
   )
 
 Example Usage urls.py::
+
   from django.conf.urls import patterns, url, include
   urlpatterns = patterns(
     ''
