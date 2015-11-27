@@ -34,6 +34,7 @@ setup(
     install_requires=[
         'Django==1.8.5',
         'django-crispy-forms==1.2.3',
-        'python-social-auth>=0.2.2'
+        'python-social-auth>=0.2.2',
+        'pyyaml',
     ],
 )
