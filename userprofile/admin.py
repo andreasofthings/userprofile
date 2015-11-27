@@ -10,7 +10,7 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = (
         'user',
         'gender',
-        'looksfor',
+        'lookfor',
         'age'
     )
     list_filter = ('gender', )
