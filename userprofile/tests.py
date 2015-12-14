@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from .models import Profile
 from datetime import date
 
@@ -7,6 +7,10 @@ class ViewsTest(TestCase):
     """
     TestCase to test all exposed views for anonymous users.
     """
+
+    fixtures = [
+        'user.yaml',
+    ]
 
     def setUp(self):
         pass
@@ -20,7 +24,13 @@ class ViewsTest(TestCase):
         self.assertEquals(response.status_code, 200)
 
     def testLoginAuthenticated(self):
-        response = self.client.get('/user/login/')
+        response = self.client.post(
+            '/user/login/',
+            {
+                'username': 'andreas',
+                'password': '',
+            }
+        )
         self.assertEquals(response.status_code, 200)
 
     def testLogoutGetAnonymous(self):
