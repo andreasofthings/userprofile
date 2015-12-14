@@ -15,12 +15,31 @@ class ViewsTest(TestCase):
         response = self.client.get('/user/')
         self.assertEquals(response.status_code, 200)
 
-    def testLogin(self):
+    def testLoginAnonymous(self):
         response = self.client.get('/user/login/')
         self.assertEquals(response.status_code, 200)
 
-    def testLogout(self):
+    def testLoginAuthenticated(self):
+        response = self.client.get('/user/login/')
+        self.assertEquals(response.status_code, 200)
+
+    def testLogoutGetAnonymous(self):
         response = self.client.get('/user/logout/')
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, '/user/')
+
+    def testLogoutPostAnonymous(self):
+        response = self.client.post('/user/logout/')
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, '/user/')
+
+    def testLogoutGetAuthenticated(self):
+        response = self.client.get('/user/logout/')
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, '/user/')
+
+    def testLogoutPostAuthenticated(self):
+        response = self.client.post('/user/logout/')
         self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, '/user/')
 
