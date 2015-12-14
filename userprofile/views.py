@@ -3,6 +3,10 @@
 
 """
 Views
+=====
+
+Login, Logout to your userprofile and view, edit the settings therein.
+
 """
 
 from utils import default_redirect

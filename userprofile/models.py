@@ -1,21 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils.translation import gettext_lazy as _
 
 from datetime import date
 
-
-GENDER_CHOICES = (
-    ('u', _('undefined')),
-    ('M', _('Male')),
-    ('F', _('Female')),
-)
-
-LOOKFOR_CHOICES = (
-    ('a', _('any')),
-    ('M', _('Man')),
-    ('F', _('Female')),
-)
+from . import GENDER_CHOICES
+from . import LOOKFOR_CHOICES
 
 
 class ProfileManager(models.Manager):
