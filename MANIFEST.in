@@ -1,3 +1,4 @@
+include README.rst
 include LICENSE
 recursive-include userprofile/templates/userprofile *
 recursive-include userprofile/templates/user *

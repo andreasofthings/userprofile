@@ -1,7 +1,7 @@
 from django.utils.translation import gettext_lazy as _
 
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 GENDER_CHOICES = (
     ('u', _('undefined')),
