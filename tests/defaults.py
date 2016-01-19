@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.admin',
     'django.contrib.sitemaps',
+    'social.apps.django_app.default',
     'crispy_forms',
     'tests',
     'userprofile',

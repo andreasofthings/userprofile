@@ -121,7 +121,7 @@ class Profile(models.Model):
         Calculate a users age in years.
         """
         if self.dob:
-            return (date.today() - self.dob).days / 365
+            return int((date.today() - self.dob).days / 365)
         else:
             return 0
 
@@ -130,6 +130,9 @@ class Profile(models.Model):
         Unicode representation of self
         """
         return u'%s (%s, %s)' % (self.user.username, self.gender, self.age)
+
+    def __str__(self):
+        return self.__unicode__()
 
     @models.permalink
     def get_absolute_url(self):

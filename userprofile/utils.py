@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 import functools
-import urlparse
 from django.core.exceptions import SuspiciousOperation
+
+try:
+    import urlparse
+except ImportError:
+    # python3 compat
+    import urllib.parse as urlparse
 
 
 def default_redirect(request, fallback_url, **kwargs):
@@ -28,7 +33,12 @@ def default_redirect(request, fallback_url, **kwargs):
     return redirect_to
 
 
-def ensure_safe_url(url, allowed_protocols=None, allowed_host=None, raise_on_fail=False):
+def ensure_safe_url(
+    url,
+    allowed_protocols=None,
+    allowed_host=None,
+    raise_on_fail=False
+):
     if allowed_protocols is None:
         allowed_protocols = ["http", "https"]
     parsed = urlparse.urlparse(url)
@@ -37,10 +47,14 @@ def ensure_safe_url(url, allowed_protocols=None, allowed_host=None, raise_on_fai
     safe = True
     if parsed.scheme and parsed.scheme not in allowed_protocols:
         if raise_on_fail:
-            raise SuspiciousOperation("Unsafe redirect to URL with protocol '%s'" % parsed.scheme)
+            raise SuspiciousOperation(
+                "Unsafe redirect to URL with protocol '%s'" % parsed.scheme
+            )
         safe = False
     if allowed_host and parsed.netloc and parsed.netloc != allowed_host:
         if raise_on_fail:
-            raise SuspiciousOperation("Unsafe redirect to URL not matching host '%s'" % allowed_host)
+            raise SuspiciousOperation(
+                "Unsafe redirect to URL not matching host '%s'" % allowed_host
+            )
         safe = False
     return safe

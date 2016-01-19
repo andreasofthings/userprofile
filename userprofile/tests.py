@@ -98,7 +98,7 @@ class ModelTest(TestCase):
 
     def testAge(self):
         p = Profile.objects.get(pk=1)
-        age = (date.today() - p.dob).days / 365
+        age = int((date.today() - p.dob).days / 365)
         self.assertEquals(p.age, age)
 
     def testRepr(self):
