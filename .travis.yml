@@ -14,7 +14,7 @@ env:
 install:
    # Install the dependencies the app itself has
    # which in this case I choose to keep in a requirements file
- - pip install git+https://github.com/aneumeier/userprofile#master
+ - pip install git+https://github.com/aneumeier/userprofile#0.2.5
  - pip install coveralls
  - pip install psycopg2
    # Install whatever version of Django that's listed above
