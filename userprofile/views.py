@@ -9,8 +9,6 @@ Login, Logout to your userprofile and view, edit the settings therein.
 
 """
 
-from utils import default_redirect
-
 from django.views.generic import TemplateView
 from django.views.generic import FormView
 
@@ -30,6 +28,7 @@ from django.conf import settings
 
 import urlparse
 
+from .utils import default_redirect
 from .forms import APAuthenticationForm
 from .models import Profile
 
