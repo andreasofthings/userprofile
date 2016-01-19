@@ -26,7 +26,11 @@ from django.shortcuts import redirect
 
 from django.conf import settings
 
-import urlparse
+try:
+    import urlparse
+except ImportError:
+    # python3 compat
+    import urllib.parse as urlparse
 
 from .utils import default_redirect
 from .forms import APAuthenticationForm
