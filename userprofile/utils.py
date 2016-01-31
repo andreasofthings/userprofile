@@ -12,7 +12,7 @@ def default_redirect(request, fallback_url, **kwargs):
     next = request.REQUEST.get(redirect_field_name)
     if not next:
         # try the session if available
-        if hasattr(request, "session"):
+        if "session" in request:
             session_key_value = kwargs.get("session_key_value", "redirect_to")
             next = request.session.get(session_key_value)
     is_safe = functools.partial(
@@ -28,7 +28,12 @@ def default_redirect(request, fallback_url, **kwargs):
     return redirect_to
 
 
-def ensure_safe_url(url, allowed_protocols=None, allowed_host=None, raise_on_fail=False):
+def ensure_safe_url(
+    url,
+    allowed_protocols=None,
+    allowed_host=None,
+    raise_on_fail=False
+):
     if allowed_protocols is None:
         allowed_protocols = ["http", "https"]
     parsed = urlparse.urlparse(url)
@@ -37,10 +42,16 @@ def ensure_safe_url(url, allowed_protocols=None, allowed_host=None, raise_on_fai
     safe = True
     if parsed.scheme and parsed.scheme not in allowed_protocols:
         if raise_on_fail:
-            raise SuspiciousOperation("Unsafe redirect to URL with protocol '%s'" % parsed.scheme)
+            raise SuspiciousOperation(
+                """Unsafe redirect to URL with protocol '%s'"""
+                % parsed.scheme
+            )
         safe = False
     if allowed_host and parsed.netloc and parsed.netloc != allowed_host:
         if raise_on_fail:
-            raise SuspiciousOperation("Unsafe redirect to URL not matching host '%s'" % allowed_host)
+            raise SuspiciousOperation(
+                """Unsafe redirect to URL not matching host '%s'"""
+                % allowed_host
+            )
         safe = False
     return safe
