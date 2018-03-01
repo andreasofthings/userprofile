@@ -5,10 +5,10 @@
 urly.py to allow tests in travis-ci
 """
 
-from django.conf.urls import patterns, url, include
+from django.conf.urls import url, include
 
-urlpatterns = patterns(
+urlpatterns = [
     '',
     url('^user/', include('userprofile.urls', namespace='user')),
     url('', include('social.apps.django_app.urls', namespace='social'))
-)
+]
